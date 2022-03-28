@@ -1,17 +1,26 @@
 package com.nopo;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static int[] charCount = new int[26];
+    public static String words = "";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        if (args.length == 0) {
+            System.out.println("What string would you like to check the char count of?");
+            words = scanner.nextLine();
+        } else {
+            for (String arg : args) {
+                words = words + arg;
+            }
+        }
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
         String full = "⣿";
         String[] graph = new String[26];
-        System.out.println("What string would you like to check the char count of?");
-        String words = scanner.nextLine();
+
         char[] wordsArray = words.toCharArray();
         char[] alphabetArray = alphabet.toCharArray();
         StringBuilder graphString = new StringBuilder();
